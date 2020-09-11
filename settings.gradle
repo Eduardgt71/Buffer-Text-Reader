@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Downloader TikTok"
+rootProject.name = "Buffer text Reader"
