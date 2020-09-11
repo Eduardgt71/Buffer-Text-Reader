@@ -22,27 +22,6 @@ class MyClipboardManager(private val context: Context) {
         }
     }
 
-   // @SuppressLint("NewApi")
-//    fun copyToClipboard(text: String?): Boolean {
-//        return try {
-//            val sdk = Build.VERSION.SDK_INT
-//            if (sdk < Build.VERSION_CODES.HONEYCOMB) {
-//                val clipboard = context
-//                    .getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-//                clipboard.text = text
-//            } else {
-//                val clipboard = context
-//                    .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-//                val clip = ClipData
-//                    .newPlainText("Message", text)
-//                clipboard.setPrimaryClip(clip)
-//            }
-//            true
-//        } catch (e: Exception) {
-//            false
-//        }
-//    }
-
     @SuppressLint("NewApi")
     fun readFromClipboard(): String {
         val sdk = Build.VERSION.SDK_INT
@@ -57,9 +36,6 @@ class MyClipboardManager(private val context: Context) {
         } else {
             val clipboard = context
                 .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-
-            // Gets a content resolver instance
-            val cr = context.contentResolver
 
             // Gets the clipboard data from the clipboard
             val clip = clipboard.primaryClip
