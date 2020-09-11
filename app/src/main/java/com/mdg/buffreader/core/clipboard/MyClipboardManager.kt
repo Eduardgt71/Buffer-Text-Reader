@@ -65,13 +65,9 @@ class MyClipboardManager(private val context: Context) {
             val clip = clipboard.primaryClip
             if (clip != null) {
                 var text: String? = null
-                val title: String? = null
 
                 // Gets the first item from the clipboard data
                 val item = clip.getItemAt(0)
-
-                // Tries to get the item's contents as a URI pointing to a note
-                val uri = item.uri
 
                 // If the contents of the clipboard wasn't a reference to a
                 // note, then
