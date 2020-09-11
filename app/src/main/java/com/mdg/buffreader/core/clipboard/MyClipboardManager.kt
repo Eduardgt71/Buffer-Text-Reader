@@ -48,8 +48,12 @@ class MyClipboardManager(private val context: Context) {
         val sdk = Build.VERSION.SDK_INT
         if (sdk < Build.VERSION_CODES.HONEYCOMB) {
             val clipboard = context
-                .getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-            return clipboard.text.toString()
+                .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+
+            val clip = clipboard.primaryClip
+            if (clip == null || clip.itemCount == 0)
+                return ""
+            return clip.getItemAt(0).text.toString()
         } else {
             val clipboard = context
                 .getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
